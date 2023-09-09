@@ -33,7 +33,6 @@ executing==1.2.0
 fastjsonschema==2.16.2
 Flask==2.2.5
 folium==0.14.0
-fonttools==4.39.4
 frozendict==2.3.8
 fuzzywuzzy==0.18.0
 greenlet==2.0.2
