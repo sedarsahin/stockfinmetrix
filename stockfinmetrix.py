@@ -58,6 +58,9 @@ import pandas as pd
 # pandas_datareader to retrieve tickers
 import pandas_datareader.nasdaq_trader as nas
 
+# For read_json
+from io import StringIO
+
 # Date and Datetime manipulation 
 import datetime as dt
 
@@ -66,6 +69,8 @@ import uszipcode
 # Maps
 import folium
 
+# Time manipulation
+import time
 
 
 # Get the list of all available equity symbols from Nasdaq
@@ -639,8 +644,9 @@ def update_revenue_graph_annual(ticker_income_stmt_json):
     """
     # if not ticker_income_stmt_json:
     #     raise PreventUpdate
-
-    ticker_income_stmt = pd.read_json(ticker_income_stmt_json)
+        # to load data appropriately 
+    time.sleep(1)
+    ticker_income_stmt = pd.read_json(StringIO(ticker_income_stmt_json))
 
     factor = 'Total Revenue'
   
@@ -693,8 +699,11 @@ def update_revenue_graph_quarterly(ticker_income_stmt_quarterly_json):
     """
     # if not ticker_income_stmt_quarterly_json:
     #     raise PreventUpdate
-
-    ticker_income_stmt_quarterly = pd.read_json(ticker_income_stmt_quarterly_json)
+    
+    # to load data appropriately 
+    time.sleep(1)
+    
+    ticker_income_stmt_quarterly = pd.read_json(StringIO(ticker_income_stmt_quarterly_json))
 
     factor = 'Total Revenue'
   
@@ -734,7 +743,10 @@ def update_op_inc_graph_annual(ticker_income_stmt_json):
     # if not ticker_income_stmt_json:
     #     raise PreventUpdate
 
-    ticker_income_stmt = pd.read_json(ticker_income_stmt_json)
+    # to load data appropriately 
+    time.sleep(1)
+
+    ticker_income_stmt = pd.read_json(StringIO(ticker_income_stmt_json))
 
     factor = 'Total Operating Income As Reported'
   
@@ -761,6 +773,7 @@ def update_op_inc_graph_annual(ticker_income_stmt_json):
     return fig
 
 
+
 @app.callback(Output(component_id='operating_income_graph_quarterly', component_property='figure'),
               [Input(component_id='intermediate-value-ticker-income_stmt_quarterly', component_property='data')])
 def update_op_inc_graph_quarterly(ticker_income_stmt_quarterly_json):
@@ -772,7 +785,10 @@ def update_op_inc_graph_quarterly(ticker_income_stmt_quarterly_json):
     # if not ticker_income_stmt_quarterly_json:
     #     raise PreventUpdate
 
-    ticker_income_stmt_quarterly = pd.read_json(ticker_income_stmt_quarterly_json)
+    # to load data appropriately 
+    time.sleep(1)
+
+    ticker_income_stmt_quarterly = pd.read_json(StringIO(ticker_income_stmt_quarterly_json))
 
     factor = 'Total Operating Income As Reported'
   
@@ -811,8 +827,11 @@ def update_net_inc_graph_annual(ticker_income_stmt_json):
     """
     # if not ticker_income_stmt_json:
     #     raise PreventUpdate
+    
+    # to load data appropriately 
+    time.sleep(1)
 
-    ticker_income_stmt = pd.read_json(ticker_income_stmt_json)
+    ticker_income_stmt = pd.read_json(StringIO(ticker_income_stmt_json))
 
     factor = 'Net Income'
   
@@ -849,7 +868,7 @@ def update_net_inc_graph_quarterly(ticker_income_stmt_quarterly_json):
     # if not ticker_income_stmt_quarterly_json:
     #     raise PreventUpdate
 
-    ticker_income_stmt_quarterly = pd.read_json(ticker_income_stmt_quarterly_json)
+    ticker_income_stmt_quarterly = pd.read_json(StringIO(ticker_income_stmt_quarterly_json))
 
     factor = 'Net Income'
   
@@ -989,7 +1008,7 @@ def update_basic_eps_graph_quarterly(ticker_income_stmt_quarterly_json):
     # if not ticker_income_stmt_quarterly_json:
     #     raise PreventUpdate
 
-    ticker_income_stmt_quarterly = pd.read_json(ticker_income_stmt_quarterly_json)
+    ticker_income_stmt_quarterly = pd.read_json(StringIO(ticker_income_stmt_quarterly_json))
 
     factor = 'Basic EPS'
   
@@ -1026,7 +1045,7 @@ def update_diluted_eps_graph_quarterly(ticker_income_stmt_quarterly_json):
     # if not ticker_income_stmt_quarterly_json:
     #     raise PreventUpdate
 
-    ticker_income_stmt_quarterly = pd.read_json(ticker_income_stmt_quarterly_json)
+    ticker_income_stmt_quarterly = pd.read_json(StringIO(ticker_income_stmt_quarterly_json))
 
     factor = 'Diluted EPS'
   
@@ -1079,7 +1098,7 @@ def update_debt_graph(ticker_balance_sheet_json):
     # if not ticker_balance_sheet_json:
     #     raise PreventUpdate
 
-    ticker_balance_sheet = pd.read_json(ticker_balance_sheet_json)
+    ticker_balance_sheet = pd.read_json(StringIO(ticker_balance_sheet_json))
 
     factor = 'Total Debt'
     df = ticker_balance_sheet[ticker_balance_sheet.index == factor]
@@ -1117,7 +1136,7 @@ def update_equity_graph(ticker_balance_sheet_json):
     # if not ticker_balance_sheet_json:
     #     raise PreventUpdate
 
-    ticker_balance_sheet = pd.read_json(ticker_balance_sheet_json)
+    ticker_balance_sheet = pd.read_json(StringIO(ticker_balance_sheet_json))
 
     factor = 'Stockholders Equity'  
     df = ticker_balance_sheet[ticker_balance_sheet.index == factor]
@@ -1154,7 +1173,7 @@ def update_d2e_graph(ticker_balance_sheet_json):
     # if not ticker_balance_sheet_json:
     #     raise PreventUpdate
 
-    ticker_balance_sheet = pd.read_json(ticker_balance_sheet_json)
+    ticker_balance_sheet = pd.read_json(StringIO(ticker_balance_sheet_json))
 
     f1 = 'Total Debt'
     f2 = 'Stockholders Equity'
@@ -1216,7 +1235,7 @@ def update_op_cashflow_graph(ticker_cash_flow_json):
     # if not ticker_cash_flow_json:
     #     raise PreventUpdate
 
-    ticker_cash_flow = pd.read_json(ticker_cash_flow_json)
+    ticker_cash_flow = pd.read_json(StringIO(ticker_cash_flow_json))
     
     factor = 'Operating Cash Flow'  
     df = ticker_cash_flow[ticker_cash_flow.index == factor]
@@ -1253,7 +1272,7 @@ def update_free_cashflow_graph(ticker_cash_flow_json):
     # if not ticker_cash_flow_json:
     #     raise PreventUpdate
 
-    ticker_cash_flow = pd.read_json(ticker_cash_flow_json)
+    ticker_cash_flow = pd.read_json(StringIO(ticker_cash_flow_json))
     
     
     factor = 'Free Cash Flow'  
@@ -1307,7 +1326,7 @@ def update_dividends_graph(ticker_dividends_json):
     # if not ticker_dividends_json:
     #     raise PreventUpdate
 
-    ticker_dividends = pd.read_json(ticker_dividends_json)
+    ticker_dividends = pd.read_json(StringIO(ticker_dividends_json))
     
     # check if there is data available
     if len(ticker_dividends) == 0:
@@ -1365,7 +1384,7 @@ def update_total_assets_graph_annual(ticker_balance_sheet_json):
     # if not ticker_balance_sheet_json:
     #     raise PreventUpdate
 
-    ticker_balance_sheet = pd.read_json(ticker_balance_sheet_json)
+    ticker_balance_sheet = pd.read_json(StringIO(ticker_balance_sheet_json))
     
     try: 
         factor = 'Total Assets'  
@@ -1405,7 +1424,7 @@ def update_current_assets_graph_annual(ticker_balance_sheet_json):
     # if not ticker_balance_sheet_json:
     #     raise PreventUpdate
 
-    ticker_balance_sheet = pd.read_json(ticker_balance_sheet_json)
+    ticker_balance_sheet = pd.read_json(StringIO(ticker_balance_sheet_json))
     
     factor = 'Current Assets'  
     df = ticker_balance_sheet[ticker_balance_sheet.index == factor]
@@ -1442,7 +1461,7 @@ def update_inv_in_fin_assets_graph_annual(ticker_balance_sheet_json):
     # if not ticker_balance_sheet_json:
     #     raise PreventUpdate
 
-    ticker_balance_sheet = pd.read_json(ticker_balance_sheet_json)
+    ticker_balance_sheet = pd.read_json(StringIO(ticker_balance_sheet_json))
     
 
 
