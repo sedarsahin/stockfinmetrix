@@ -47,10 +47,6 @@ from pyrate_limiter import Duration, RequestRate, Limiter
 class CachedLimiterSession(CacheMixin, LimiterMixin, Session):
     pass
 
-# Multiprocessing
-import multiprocessing
-
-
 # Data manipulation packages
 import numpy as np
 import pandas as pd
