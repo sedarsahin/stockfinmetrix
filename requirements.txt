@@ -18,6 +18,7 @@ folium==0.14.0
 frozendict==2.3.8
 fuzzywuzzy==0.18.0
 greenlet==2.0.2
+gunicorn==21.2.0
 haversine==2.8.0
 html5lib==1.1
 idna==3.4
