@@ -18,6 +18,9 @@ business details and financial details, including
     - Cash Flow
     - Dividend History
     - Asset Quality
+
+
+Disclaimer: Data extracted from Yahoo! Finance's API, and is intended only for research and educational purposes!
 """
 
 
