@@ -118,6 +118,7 @@ company_table_columns = ['shortName','address1','city','state','zip','country','
 
 # create app
 app = Dash(__name__)
+server = app.server
 
 app.layout = html.Div([
                 html.H1('Stocks Dashboard'),
