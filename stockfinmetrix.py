@@ -1,5 +1,5 @@
 """
-Our app offers a valuable educational experience for users interested in exploring investment opportunities in 
+This app offers a valuable educational experience for users interested in exploring investment opportunities in 
 companies. By simply entering a company's ticker symbol, users gain access to a wealth of financial metrics and 
 insights. From key financial ratios to historical performance data, our platform empowers users to make informed 
 decisions by providing a comprehensive view of a company's financial health. Whether you're a seasoned investor 
