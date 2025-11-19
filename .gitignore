@@ -2,3 +2,6 @@ sfmx/
 nasdaq_symbols.pkl
 __pycache__
 company.html
+yfinance.cache
+*.sqlite
+.DS_Store
