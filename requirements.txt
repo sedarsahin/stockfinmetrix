@@ -15,7 +15,9 @@ plotly>=5.16.0
 folium>=0.14.0
 
 # Geocoding
-uszipcode>=1.0.1
+uszipcode==1.0.1
+sqlalchemy-mate==2.0.0.0
+
 
 # HTTP and Rate Limiting
 requests>=2.31.0
